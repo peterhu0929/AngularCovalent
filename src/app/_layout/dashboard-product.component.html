@@ -1,0 +1,90 @@
+<td-layout-nav logo="assets:Yang_Ming_Line">
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span flex></span>
+    <a md-icon-button mdTooltip="Docs" href="https://teradata.github.io/covalent/" target="_blank"><md-icon>chrome_reader_mode</md-icon></a>
+    <a md-icon-button mdTooltip="Github" href="https://github.com/teradata/covalent" target="_blank"><md-icon svgIcon="assets:github"></md-icon></a>
+  </div>
+  <td-layout-manage-list #manageList
+                         [opened]="media.registerQuery('gt-lg') | async"
+                         [mode]="(media.registerQuery('gt-lg') | async) ? 'side' : 'push'"
+                         [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '300px' : '100%'">
+    <md-toolbar td-sidenav-content>
+      <span>Product Name</span>
+    </md-toolbar>
+
+    <md-nav-list td-sidenav-content *ngFor="let item of selectedRoute">
+      <a md-list-item
+         md-ripple class="block relative"
+         (click)="!media.query('gt-lg') && manageList.close()"
+         [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}"
+         routerLink='/WebMvc/{{item.pg}}'>
+        <md-icon md-list-icon>dashboard</md-icon>
+        {{item.text}}
+      </a>
+    </md-nav-list>
+    <!--
+    <md-nav-list td-sidenav-content>
+      <a md-list-item
+         md-ripple class="block relative"
+         (click)="!media.query('gt-lg') && manageList.close()"
+         [routerLinkActive]="['active']"
+         [routerLinkActiveOptions]="{exact:true}"
+         [routerLink]="['/GL/GL11010W']">
+        <md-icon md-list-icon>dashboard</md-icon>
+        GL11010W
+      </a>
+      <a md-list-item
+        md-ripple class="block relative"
+        (click)="!media.query('gt-sm') && manageList.close()"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['/product']">
+        <md-icon md-list-icon>dashboard</md-icon>
+        Dashboard
+      </a>
+      <a md-list-item
+        md-ripple class="block relative"
+        (click)="!media.query('gt-sm') && manageList.close()"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['stats']">
+        <md-icon md-list-icon>insert_chart</md-icon>
+        Stats
+      </a>
+      <a md-list-item
+        md-ripple class="block relative"
+        (click)="!media.query('gt-sm') && manageList.close()"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['features']">
+        <md-icon md-list-icon>star</md-icon>
+        Features
+      </a>
+      <a md-list-item (click)="!media.query('gt-sm') && manageList.close()" md-ripple class="block relative">
+        <md-icon md-list-icon>people</md-icon>
+        Customers
+      </a>
+      <h3 md-subheader>Admin Menu</h3>
+      <a md-list-item (click)="!media.query('gt-sm') && manageList.close()" md-ripple class="block relative">
+        <md-icon md-list-icon>receipt</md-icon>
+        Log
+      </a>
+      <a md-list-item (click)="!media.query('gt-sm') && manageList.close()" md-ripple class="block relative">
+        <md-icon md-list-icon>settings</md-icon>
+        Settings
+      </a>
+    </md-nav-list>
+    -->
+
+
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span>{{title}}</span>
+      <span flex></span>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+  </td-layout-manage-list>
+</td-layout-nav>

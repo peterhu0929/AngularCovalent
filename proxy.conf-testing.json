@@ -1,0 +1,9 @@
+{
+ "/api": {
+"target": "http://ymfindev02.yangming.com/acctmvc/api",
+"pathRewrite": {
+  "^/api": ""
+},
+"secure": false
+}
+}

@@ -1,0 +1,12 @@
+<kendo-grid
+  [data]="gridView"
+  [pageSize]="pageSize"
+  [skip]="skip"
+  [pageable]="true"
+  (pageChange)="pageChange($event)"
+>
+</kendo-grid>
+
+<!--
+  <div *ngFor="let glData of glDatas">{{glData.name }}</div>
+<div *ngFor="let item of datas">{{item.name }}</div>-->

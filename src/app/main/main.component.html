@@ -1,0 +1,16 @@
+
+<td-layout #layout>
+  <td-navigation-drawer logo="assets:Yang_Ming_Line" sidenavTitle="{{moudle}}" name="{{user.USR_NAME}}" email="{{user.EMAIL}}">
+    <md-nav-list>
+      <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
+        <!--        <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.function.text}}</a>      -->
+        <a md-list-item [routerLink]="['/WebMvc']" (click)="layout.close();selectedRoute = item.programs;"><md-icon>dashboard</md-icon>{{item.function.text}}</a>
+      </ng-template>
+    </md-nav-list>
+    <md-nav-list td-navigation-drawer-menu>
+      <a md-list-item (click)="logout()"><md-icon>exit_to_app</md-icon>Sign out</a>
+    </md-nav-list>
+  </td-navigation-drawer>
+  <qs-dashboard-product [selectedRoute]="selectedRoute"></qs-dashboard-product>
+</td-layout>
+
